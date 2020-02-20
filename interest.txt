@@ -1,0 +1,79 @@
+import java.util.Scanner;
+
+interface display
+{
+	void display1();
+}
+ class simple implements display {
+
+	 double principal,rate,time,SI,CI;
+ public  void calculate()
+ {
+	 
+    
+    Scanner sc=new Scanner(System.in);
+    principal=sc.nextDouble();
+    rate=sc.nextDouble();
+    time=sc.nextDouble();
+
+    /* Calculate compound interest */
+    SI=principal*rate*time;
+     CI = principal * 
+                (Math.pow((1 + rate / 100), time)); 
+   
+}   
+  public void display1()
+  {
+	  System.out.println("Simple Interest is "+SI+"\n"+"Compound Interest is "+CI);
+  }
+}
+class house implements display
+{
+	int  totalarea,total_cost;
+	int standard_material;
+	String fully_automated;
+	public void cost() {
+	Scanner sc=new Scanner(System.in);
+	totalarea=sc.nextInt();
+	standard_material=sc.nextInt();
+	fully_automated=sc.next();
+	
+	if(standard_material==1 && fully_automated=="no")
+	{
+		total_cost=1200*totalarea;
+	}
+	else if(standard_material==2 && fully_automated=="no")
+	{
+		total_cost=1500*totalarea;
+	}
+	else if(standard_material>2 && fully_automated=="no")
+	{
+		total_cost=1800*totalarea;
+	}
+	else
+	{
+		total_cost=2500*totalarea;
+	}
+	
+	
+}
+	public void display1()
+	{
+		System.out.println("total cost="+total_cost);
+	}
+
+}
+public class interest
+{
+	public static void main(String[]args)
+	{
+		
+		simple o2=new simple();
+		o2.calculate();
+		o2.display1();
+	house o1=new house();
+	o1.cost();
+	o1.display1();
+	
+	}
+}
